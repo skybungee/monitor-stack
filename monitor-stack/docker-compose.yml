@@ -3,14 +3,14 @@ services:
   prometheus:
     image: prom/prometheus:latest
     volumes:
-      - ~/monitor-stack/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /opt/monitor-stack/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
   grafana:
     image: grafana/grafana:latest
     volumes:
-      - ~/monitor-stack/grafana/grafana.ini:/etc/grafana/grafana.ini
-      - ~/monitor-stack/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - /opt/monitor-stack/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - /opt/monitor-stack/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yaml
     ports:
       - "3000:3000"
     links:
