@@ -10,7 +10,9 @@ services:
     image: grafana/grafana:latest
     volumes:
       - /opt/monitor-stack/grafana/grafana.ini:/etc/grafana/grafana.ini
-      - /opt/monitor-stack/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - /opt/monitor-stack/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - /opt/monitor-stack/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - /opt/monitor-stack/grafana/dashboards:/etc/grafana/dashboards
     ports:
       - "3000:3000"
     links:
